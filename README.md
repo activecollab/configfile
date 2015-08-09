@@ -11,7 +11,7 @@ To install it, use Composer:
 ```json
 {
     "require": {
-        "activecollab/configfile": "~1.1"
+        "activecollab/configfile": "~1.0"
     }
 }
 ```
