@@ -1,0 +1,17 @@
+{
+  "name" : "activecollab/configfile",
+  "description" : "Get data from PHP configuration file",
+  "license" : "MIT",
+  "require" : {
+  },
+  "require-dev" : {
+    "phpunit/phpunit": "~4.7"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "ActiveCollab\\ConfigFile\\": "src",
+      "ActiveCollab\\ConfigFile\\Test\\": "test/src"
+    }
+  }
+}
