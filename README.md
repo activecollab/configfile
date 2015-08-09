@@ -1,32 +1,36 @@
 # ConfigFile Library
 
-Simple utility for getting constants from configuration files written in PHP. If we have a file like this:
+[![Build Status](https://travis-ci.org/activecollab/configfile.svg?branch=master)](https://travis-ci.org/activecollab/configfile)
+
+Simple utility for getting constants from configuration files written in PHP. If we have a `config.example.php` file that looks like this:
 
 ```php
 <?php
 
-  const ONE = 1;
-  define ('TWO', 2);
-  defined ('THREE') or define('THREE', 3);
+const ONE = 1;
+define ('TWO', 2);
+defined ('THREE') or define('THREE', 3);
 
-  const THIS_IS_TRUE = true;
-  define ("THIS_IS_FALSE", false);
+const THIS_IS_TRUE = true;
+define ("THIS_IS_FALSE", false);
 
-  const SINGLE_QUOTED_STRING = 'single';
-  const DOUBLE_QUOTED_STRING = 'double';
+const SINGLE_QUOTED_STRING = 'single';
+const DOUBLE_QUOTED_STRING = 'double';
 
-  define('FLOAT', 2.25);
+define('FLOAT', 2.25);
 
-  // Declaration in comment should be ignored  define('IGNORE_ME', true);
-  // Same thing about const THIS_SHOULD_BE_IGNORED = true;
+// Declaration in comment should be ignored  define('IGNORE_ME', true);
+// Same thing about const THIS_SHOULD_BE_IGNORED = true;
 ```
 
-and we parese it like this:
+and we parse it like this:
 
 ```php
+<?php
+
 use ActiveCollab\ConfigFile\ConfigFile;
 
-$config_file = new ConfigFile($this->examples_path . '/test.inc.php');
+$config_file = new ConfigFile('config.example.php');
 var_dump($config_file->getOptions());
 ```
 
