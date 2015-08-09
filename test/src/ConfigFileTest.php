@@ -25,6 +25,14 @@
     }
 
     /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testExceptionOnInvalidFile()
+    {
+      new ConfigFile($this->examples_path . '/test.txt');
+    }
+
+    /**
      * Test if integer values are properly parsed
      */
     public function testParsingInteger()
