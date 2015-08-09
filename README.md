@@ -2,7 +2,23 @@
 
 [![Build Status](https://travis-ci.org/activecollab/configfile.svg?branch=master)](https://travis-ci.org/activecollab/configfile)
 
-Simple utility for getting constants from configuration files written in PHP. If we have a `config.example.php` file that looks like this:
+Simple utility for getting constants from configuration files written in PHP.
+
+## Installation
+
+To install it, use Composer:
+
+```json
+{
+    "require": {
+        "activecollab/configfile": "~1.1"
+    }
+}
+```
+
+## Usage
+
+If we have a `config.example.php` file that looks like this:
 
 ```php
 <?php
@@ -56,6 +72,8 @@ array(8) {
   float(2.25)
 }
 ```
+
+## To Do
 
 This library has been created in a bit of a rush, so there are still some things to do:
 
