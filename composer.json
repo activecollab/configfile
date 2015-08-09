@@ -1,8 +1,11 @@
 {
   "name" : "activecollab/configfile",
-  "description" : "Get data from PHP configuration file",
+  "description" : "Get constants from a configuration file written in PHP",
   "license" : "MIT",
+  "keywords": [ "const", "define", "configuration", "activecollab" ],
   "require" : {
+    "ext-ctype" : "*",
+    "ext-mbstring" : "*"
   },
   "require-dev" : {
     "phpunit/phpunit": "~4.7"
