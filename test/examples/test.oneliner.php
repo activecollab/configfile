@@ -1,0 +1,1 @@
+<?php const OMG = 12;

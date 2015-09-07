@@ -1,14 +1,13 @@
 <?php
+namespace ActiveCollab\ConfigFile\Test;
 
-  namespace ActiveCollab\ConfigFile\Test;
+use ActiveCollab\ConfigFile\ConfigFile;
 
-  use ActiveCollab\ConfigFile\ConfigFile;
-
-  /**
-   * @package ActiveCollab\ConfigFile\Test
-   */
-  class ConfigFileTest extends TestCase
-  {
+/**
+ * @package ActiveCollab\ConfigFile\Test
+ */
+class ConfigFileTest extends TestCase
+{
     /**
      * @var ConfigFile
      */
@@ -19,9 +18,9 @@
      */
     public function setUp()
     {
-      parent::setUp();
+        parent::setUp();
 
-      $this->config_file = new ConfigFile($this->examples_path . '/test.inc.php');
+        $this->config_file = new ConfigFile($this->examples_path . '/test.inc.php');
     }
 
     /**
@@ -29,7 +28,7 @@
      */
     public function testExceptionOnInvalidFile()
     {
-      new ConfigFile($this->examples_path . '/test.txt');
+        new ConfigFile($this->examples_path . '/test.txt');
     }
 
     /**
@@ -37,9 +36,9 @@
      */
     public function testParsingInteger()
     {
-      $this->assertSame(1, $this->config_file->getOption('ONE'));
-      $this->assertSame(2, $this->config_file->getOption('TWO'));
-      $this->assertSame(3, $this->config_file->getOption('THREE'));
+        $this->assertSame(1, $this->config_file->getOption('ONE'));
+        $this->assertSame(2, $this->config_file->getOption('TWO'));
+        $this->assertSame(3, $this->config_file->getOption('THREE'));
     }
 
     /**
@@ -47,7 +46,7 @@
      */
     public function testParsingFloat()
     {
-      $this->assertSame(2.25, $this->config_file->getOption('FLOAT'));
+        $this->assertSame(2.25, $this->config_file->getOption('FLOAT'));
     }
 
     /**
@@ -55,7 +54,7 @@
      */
     public function testParsingSingleQuotedString()
     {
-      $this->assertSame('single', $this->config_file->getOption('SINGLE_QUOTED_STRING'));
+        $this->assertSame('single', $this->config_file->getOption('SINGLE_QUOTED_STRING'));
     }
 
     /**
@@ -63,7 +62,7 @@
      */
     public function testParsingDoubleQuotedString()
     {
-      $this->assertSame('double', $this->config_file->getOption('DOUBLE_QUOTED_STRING'));
+        $this->assertSame('double', $this->config_file->getOption('DOUBLE_QUOTED_STRING'));
     }
 
     /**
@@ -71,8 +70,8 @@
      */
     public function testParsingBoolean()
     {
-      $this->assertSame(true, $this->config_file->getOption('THIS_IS_TRUE'));
-      $this->assertSame(false, $this->config_file->getOption('THIS_IS_FALSE'));
+        $this->assertSame(true, $this->config_file->getOption('THIS_IS_TRUE'));
+        $this->assertSame(false, $this->config_file->getOption('THIS_IS_FALSE'));
     }
 
     /**
@@ -80,7 +79,13 @@
      */
     public function testIgnoredDeclarationsInComments()
     {
-      $this->assertFalse($this->config_file->optionExists('IGNORE_ME'));
-      $this->assertFalse($this->config_file->optionExists('THIS_SHOULD_BE_IGNORED'));
+        $this->assertFalse($this->config_file->optionExists('IGNORE_ME'));
+        $this->assertFalse($this->config_file->optionExists('THIS_SHOULD_BE_IGNORED'));
     }
-  }
+
+    public function testOneliner()
+    {
+        $file = new ConfigFile($this->examples_path . '/test.oneliner.php');
+        $this->assertSame(12, $file->getOption('OMG'));
+    }
+}
